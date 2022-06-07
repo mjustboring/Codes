@@ -133,7 +133,7 @@ struct Solution {
 
 int main() {
 	
-	string s = "barfoothefoobarman";
+    string s = "barfoothefoobarman";
     
     vector<string> w {"foo", "bar"};
     
