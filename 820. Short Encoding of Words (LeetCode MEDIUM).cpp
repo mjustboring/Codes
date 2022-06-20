@@ -209,6 +209,35 @@ struct Solution {
     }
 };
 
+struct SolutionShort {
+    
+    int minimumLengthEncoding(vector<string>& words) {
+        
+        sort(words.begin(), words.end(), [](string &a, string &b) {
+            return a.size() > b.size();
+        });
+        
+        int ans = 0;
+        unordered_set<string> st;
+        
+        for (auto &w : words) {
+            
+            if (st.find(w) == st.end()) {
+                
+                int n = w.size();
+                
+                for (int i = 0; i < n; ++i) {
+                    st.insert(w.substr(i, n-i));
+                }
+                
+                ans += n+1;
+            }
+        }
+        
+        return ans;
+    }
+};
+
 void solve() {
     
     vector<string> a {"time","me","bell"};
@@ -218,6 +247,10 @@ void solve() {
     cout << "\n\n";
     
     cout << Solution().minimumLengthEncoding(a);
+    
+    cout << "\n\n";
+    
+    cout << SolutionShort().minimumLengthEncoding(a);
 }
 
 int main() {
