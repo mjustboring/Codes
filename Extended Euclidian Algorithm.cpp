@@ -5,7 +5,7 @@ using namespace std;
 
 Extended Euclidian Algorithm :-
     
-    States -> a•x + b•y = gcd(a,b);
+    States -> a•x + b•y = gcd(a,b); (Linear Diophantine Equation)
     
     Lets do some calculations
     
