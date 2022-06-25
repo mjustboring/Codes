@@ -31,7 +31,7 @@ Extended Euclidian Algorithm :-
     b•x1 + (a - floor(a/b)•b)•y1 = gcd(a,b)
     b•x1 + a•y1 - floor(a/b)•b•y1 = gcd(a,b)
     
-    separateling a and b
+    separating a and b
 
     a•y1 + b•(x1 - floor(a/b)•y1) = gcd(a,b) ---> eq 3
     
@@ -46,13 +46,13 @@ Extended Euclidian Algorithm :-
         when b becomes 0
         a will be gcd
         
-    and
-        
+    therefore
+
         a•x + b•y = gcd(a,b) = a
     
     also as b = 0
         
-        y can be any thing
+        y can be any real value
         but 0 is taken to make
         eq 5 work
 
