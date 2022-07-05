@@ -80,7 +80,7 @@ struct Graph {
 		}
 	}
 	
-	int dfs() {
+	void dfs() {
 		ans = mx = vector<int>(n);
 		dfs1(0, 0);
 		dfs2(0, 0, 0);
@@ -137,7 +137,11 @@ void solve() {
 	};
 	
 	for (int i = 0; i < 3; ++i) {
-		cout << "Case " << i+1 << ": " << Solution().solve(n[i], q[i], edge[i], query[i]) << "\n";
+		cout << "Case " << i+1 << ": ";
+		for (auto x : Solution().solve(n[i], q[i], edge[i], query[i])) {
+		    cout << x << " ";
+		}
+		cout << '\n';
 	}
 }
 
