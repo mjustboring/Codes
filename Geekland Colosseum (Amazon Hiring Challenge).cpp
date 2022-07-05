@@ -79,7 +79,7 @@ void solve() {
 		21, 32, 87, 6, 70, 6, 72, 94, 38, 40
 	};
 	
-	cout << Solution().colosseum(a.size(), a) << " : 3974";
+	cout << Solution().colosseum(a.size()/3, a) << " : 3974";
 }
 
 int main() {
