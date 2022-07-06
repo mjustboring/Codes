@@ -9,7 +9,7 @@ static const bool ___ = []() {
 	return 0;
 }();
 
-class Solution {
+class Solution1 {
 public:
     long long colosseum(int n, vector<int> &a) {
         
@@ -52,6 +52,47 @@ public:
         }
         
         return ans;
+    }
+};
+
+class Solution {
+public:
+    long long colosseum(int n, vector<int> &a) {
+        
+        long long pfx[3*n], sfx[3*n];
+        long long s = accumulate(a.begin(), a.begin()+n, 0LL);
+        priority_queue<int, vector<int>, greater<int>> mn(a.begin(), a.begin()+n);
+        
+        pfx[n-1] = s;
+        for (int i = n; i < 2*n; ++i) {
+            if (a[i] > mn.top()) {
+                s += a[i] - mn.top();
+                mn.pop();
+                mn.push(a[i]);
+            }
+            pfx[i] = s;
+        }
+        
+        s = accumulate(a.end()-n, a.end(), 0LL);
+        priority_queue<int> mx(a.end()-n, a.end());
+        
+        sfx[2*n] = s;
+        for (int i = 2*n-1; i >= n; --i) {
+            if (a[i] < mx.top()) {
+                s += a[i] - mx.top();
+                mx.pop();
+                mx.push(a[i]);
+            }
+            sfx[i] = s;
+        }
+        
+        s = pfx[n] - sfx[n+1];
+        
+        for (int i = n-1; i < 2*n; ++i) {
+            s = max(s, pfx[i] - sfx[i+1]);
+        }
+        
+        return s;
     }
 };
 
