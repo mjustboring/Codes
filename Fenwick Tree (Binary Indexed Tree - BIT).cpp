@@ -10,6 +10,8 @@ class BIT {
     
 public:
 
+    BIT(int n) : arr(n), bit(n+1) {}
+
     template <class Itr>
     BIT(Itr st, Itr en) : arr(st, en), bit(arr.size()+1) {
         for (int i = 0; i < arr.size(); ++i) {
